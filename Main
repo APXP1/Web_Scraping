@@ -1,0 +1,14 @@
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+link = "https://papuziblog.blogspot.com/2012/02/ranking-najlepiej-gadajacych-papug.html"
+html = requests.get(link)
+#test czy wszytko działa
+#print(html.text)
+s = BeautifulSoup(html.content, 'html.parser')
+resulst = s.find_all(id='ResultsCointainer')
+parrot_title = s.find_all('b')
+df = pd.DataFrame(parrot_title)
+print(df)
+#for parrot in parrot_title:
