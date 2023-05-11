@@ -8,6 +8,7 @@ html = requests.get(link)
 #print(html.text)
 s = BeautifulSoup(html.content, 'html.parser')
 resulst = s.find_all(id='ResultsCointainer')
+# bz res.
 parrot_title = s.find_all('b')
 df = pd.DataFrame(parrot_title)
 print(df)
